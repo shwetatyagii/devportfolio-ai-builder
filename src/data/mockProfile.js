@@ -17,8 +17,8 @@ export const MOCK_PROFILE = {
     title: "Java Full Stack Developer",
     location: "Delhi, India",
     email: "shwetatyagi489@gmail.com",
-    github: "github.com/shwetatyagi",
-    linkedin: "linkedin.com/in/shwetatyagi",
+    github: "github.com/shwetatyagii",
+    linkedin: "linkedin.com/in/shweta-tyagi-b09285263",
     website: "",
   },
   about: {
@@ -47,7 +47,7 @@ export const MOCK_PROFILE = {
       description:
         "An AI-powered portfolio and developer branding tool built with React and Gemini AI.",
       techStack: ["React", "Tailwind CSS", "Framer Motion", "Gemini AI"],
-      github: "github.com/shwetatyagi/devportfolio",
+      github: "github.com/shwetatyagii/devportfolio-ai-builder",
       live: "",
       achievement:
         "Reduced portfolio creation time from hours to under 5 minutes.",
@@ -57,7 +57,7 @@ export const MOCK_PROFILE = {
       description:
         "Full-stack LMS with course management, quizzes, and progress tracking.",
       techStack: ["Spring Boot", "Hibernate", "MySQL", "React", "JWT Auth"],
-      github: "github.com/shwetatyagi/lms",
+      github: "github.com/shwetatyagii",
       live: "",
       achievement:
         "Supports 500+ concurrent users with role-based access control.",
@@ -67,7 +67,7 @@ export const MOCK_PROFILE = {
       description:
         "Secure exam platform with real-time proctoring and auto-grading.",
       techStack: ["Spring Boot", "React", "MySQL", "WebSocket"],
-      github: "github.com/shwetatyagi/exam-portal",
+      github: "github.com/shwetatyagii",
       live: "",
       achievement: "Used by 200+ students in internal assessments.",
     },
@@ -112,5 +112,5 @@ Specialising in **Spring Boot** for backend and **React** for frontend.
 
 ## 📬 Contact
 - Email: shwetatyagi489@gmail.com
-- LinkedIn: linkedin.com/in/shwetatyagi`,
+- Linkedin: linkedin.com/in/shweta-tyagi-b09285263`,
 };
