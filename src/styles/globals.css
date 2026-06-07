@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ─────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50;
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  ::-webkit-scrollbar       { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-zinc-300 dark:bg-zinc-700 rounded-full; }
+
+  ::selection { @apply bg-brand-500/20 text-brand-600 dark:text-brand-300; }
+
+  *:focus-visible { @apply outline-none ring-2 ring-brand-500/50 ring-offset-2 ring-offset-zinc-50 dark:ring-offset-zinc-950; }
+
+  a { text-decoration: none; color: inherit; }
+}
+
+/* ─── Component utilities ───────────────────────────────────── */
+@layer components {
+
+  /* Card */
+  .dp-card {
+    @apply bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl;
+  }
+
+  /* Button base */
+  .dp-btn {
+    @apply inline-flex items-center justify-center gap-2 font-medium rounded-lg
+           transition-all duration-200 cursor-pointer select-none whitespace-nowrap
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none;
+  }
+
+  /* Button variants */
+  .dp-btn-primary {
+    @apply dp-btn px-4 py-2.5 text-sm bg-brand-500 hover:bg-brand-600 text-white
+           shadow-[0_0_20px_rgba(99,102,241,0.25)]
+           hover:shadow-[0_0_30px_rgba(99,102,241,0.4)]
+           hover:-translate-y-px active:translate-y-0 active:shadow-none;
+  }
+
+  .dp-btn-secondary {
+    @apply dp-btn px-4 py-2.5 text-sm
+           border border-zinc-200 dark:border-zinc-700
+           text-zinc-700 dark:text-zinc-300
+           hover:bg-zinc-50 dark:hover:bg-zinc-800/60
+           hover:border-zinc-300 dark:hover:border-zinc-600;
+  }
+
+  .dp-btn-ghost {
+    @apply dp-btn px-3 py-2 text-sm
+           text-zinc-500 dark:text-zinc-400
+           hover:text-zinc-900 dark:hover:text-zinc-100
+           hover:bg-zinc-100 dark:hover:bg-zinc-800;
+  }
+
+  .dp-btn-danger {
+    @apply dp-btn px-4 py-2.5 text-sm
+           text-red-500 dark:text-red-400
+           hover:bg-red-500/10 border border-transparent
+           hover:border-red-500/20;
+  }
+
+  /* Input */
+  .dp-input {
+    @apply w-full bg-zinc-50 dark:bg-zinc-900/60
+           border border-zinc-200 dark:border-zinc-700 rounded-lg
+           px-4 py-2.5 text-sm text-zinc-900 dark:text-zinc-50
+           placeholder:text-zinc-400 dark:placeholder:text-zinc-600
+           focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500
+           transition-all duration-150;
+  }
+
+  /* Label */
+  .dp-label {
+    @apply block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5;
+  }
+
+  /* Section divider label */
+  .dp-section-label {
+    @apply text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest;
+  }
+
+  /* Badge */
+  .dp-badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .dp-badge-brand  { @apply dp-badge bg-brand-500/10 text-brand-600 dark:text-brand-400; }
+  .dp-badge-green  { @apply dp-badge bg-emerald-500/10 text-emerald-600 dark:text-emerald-400; }
+  .dp-badge-amber  { @apply dp-badge bg-amber-500/10 text-amber-600 dark:text-amber-400; }
+  .dp-badge-red    { @apply dp-badge bg-red-500/10 text-red-600 dark:text-red-400; }
+}
+
+/* ─── Custom utilities ──────────────────────────────────────── */
+@layer utilities {
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #A855F7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Gradient border trick */
+  .gradient-border {
+    background:
+      linear-gradient(var(--gb-bg, #ffffff), var(--gb-bg, #ffffff)) padding-box,
+      linear-gradient(135deg, rgba(99,102,241,0.4), rgba(168,85,247,0.4)) border-box;
+    border: 1px solid transparent;
+  }
+  .dark .gradient-border {
+    --gb-bg: #18181b;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(24, 24, 27, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .glass-light {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  /* Scrollbar hide */
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+  /* Shimmer skeleton */
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      theme('colors.zinc.100') 25%,
+      theme('colors.zinc.50') 50%,
+      theme('colors.zinc.100') 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  .dark .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      theme('colors.zinc.800') 25%,
+      theme('colors.zinc.700') 50%,
+      theme('colors.zinc.800') 75%
+    );
+    background-size: 200% 100%;
+  }
+}
