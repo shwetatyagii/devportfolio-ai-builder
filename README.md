@@ -11,7 +11,7 @@ Generate professional portfolios · ATS resumes · GitHub READMEs
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38bdf8?logo=tailwindcss&logoColor=white&style=flat-square)](https://tailwindcss.com/)
 [![Gemini AI](https://img.shields.io/badge/Gemini-AI-4285f4?logo=google&logoColor=white&style=flat-square)](https://ai.google.dev/)
 
-**[🌐 Live Demo](https://your-app.vercel.app)** · **[⭐ Star this repo](https://github.com/yourusername/devportfolio-ai-builder)**
+**[🌐 Live Demo](https://devportfolio-ai-builder.vercel.app)** · **[⭐ Star this repo](https://github.com/shwetatyagii/devportfolio-ai-builder)**
 
 </div>
 
@@ -64,7 +64,7 @@ Generate professional portfolios · ATS resumes · GitHub READMEs
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/devportfolio-ai-builder.git
+git clone https://github.com/shwetatyagii/devportfolio-ai-builder.git
 cd devportfolio-ai-builder
 
 # 2. Install dependencies
@@ -92,6 +92,7 @@ VITE_GEMINI_API_KEY=your_gemini_api_key_here
 
 ## 📁 Project Structure
 
+```
 src/
 
 ├── components/
@@ -125,6 +126,8 @@ src/
 ├── styles/ # globals.css
 
 └── utils/ # cn, normalize, exportUtils
+
+```
 
 ---
 
@@ -165,6 +168,6 @@ MIT
 
 Built with ❤️ using React + Gemini AI
 
-**[⭐ Star this repo if it helped you!](https://github.com/yourusername/devportfolio-ai-builder)**
+**[⭐ Star this repo if it helped you!](https://github.com/shwetatyagii/devportfolio-ai-builder)**
 
 </div>
