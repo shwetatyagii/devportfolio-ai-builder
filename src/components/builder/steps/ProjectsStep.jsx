@@ -69,7 +69,7 @@ const ProjectsStep = ({ defaultValues, onNext }) => {
           </div>
 
           <Textarea
-            label="Description" rows={2} maxLength={300}
+            label="Description" rows={2} maxLength={500}
             placeholder="A brief, impactful description of what you built…"
             value={p.description} onChange={e => update(i, 'description', e.target.value)}
           />

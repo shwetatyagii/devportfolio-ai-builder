@@ -20,8 +20,8 @@ const FEATURES = [
   },
   {
     icon: Layers, color: 'text-violet-500 bg-violet-500/10',
-    title: '3 Premium Templates',
-    desc: 'Minimal Professional, Modern SaaS, Glassmorphism Developer — all recruiter-ready.',
+    title: '5 Premium Templates',
+    desc: 'Minimal, Modern SaaS, Glassmorphism, Corporate ATS, and Developer Terminal — each recruiter-ready.',
   },
   {
     icon: Zap, color: 'text-amber-500 bg-amber-500/10',

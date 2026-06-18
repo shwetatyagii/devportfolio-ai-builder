@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "docx": "^9.7.1",
+    "dompurify": "^3.4.8",
     "framer-motion": "^12.40.0",
     "html2canvas": "^1.4.1",
     "jspdf": "^4.2.1",

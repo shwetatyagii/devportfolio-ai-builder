@@ -2,8 +2,8 @@ import { CheckCircle2 } from 'lucide-react'
 import cn from '@/utils/cn'
 
 const StepIndicator = ({ steps, activeStep }) => (
-  <div className="w-full overflow-x-auto scrollbar-hide">
-    <div className="flex items-start min-w-max mx-auto px-2 py-1">
+  <div className="overflow-x-auto scrollbar-hide -mx-1 px-1 mb-6" role="navigation" aria-label="Form steps">
+    <div className="flex items-center min-w-max">
       {steps.map((step, i) => {
         const done    = i < activeStep
         const current = i === activeStep

@@ -1,57 +1,76 @@
 import { useState } from 'react'
-import { Outlet } from 'react-router-dom'
-import { Menu } from 'lucide-react'
+import { Outlet, Link } from 'react-router-dom'
+import { Menu, Sparkles } from 'lucide-react'
 import DashboardSidebar from './DashboardSidebar'
-import MobileMenu from './MobileMenu'
-import ThemeToggle from './ThemeToggle'
+import ThemeToggle      from './ThemeToggle'
+import cn from '@/utils/cn'
 
 const DashboardLayout = () => {
-  const [collapsed,      setCollapsed]      = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [collapsed,  setCollapsed]  = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <div className="min-h-screen flex bg-zinc-50 dark:bg-zinc-950">
+    <div className="flex min-h-screen bg-zinc-50 dark:bg-zinc-950">
 
-      {/* Sidebar — desktop only */}
-      <div className="hidden md:flex flex-shrink-0">
+      {/* ── Mobile backdrop ──────────────────────────────────────── */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
+
+      {/* ── Sidebar wrapper ─────────────────────────────────────── */}
+      <div
+        className={cn(
+          'fixed inset-y-0 left-0 z-40',
+          'lg:static lg:z-auto lg:block',
+          'transition-transform duration-300 ease-in-out',
+          'lg:translate-x-0',
+          mobileOpen ? 'translate-x-0' : '-translate-x-full'
+        )}
+      >
         <DashboardSidebar
           collapsed={collapsed}
           onToggleCollapse={() => setCollapsed(p => !p)}
         />
       </div>
 
-      {/* Mobile drawer */}
-      <MobileMenu
-        isOpen={mobileMenuOpen}
-        onClose={() => setMobileMenuOpen(false)}
-      />
+      {/* ── Main column ─────────────────────────────────────────── */}
+      <div className="flex-1 min-w-0 flex flex-col">
 
-      {/* Main area */}
-      <div className="flex-1 flex flex-col min-h-screen">
-
-        {/* Top bar */}
-        <header className="h-14 sticky top-0 z-20 flex-shrink-0 flex items-center justify-between px-4 md:px-6 bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
-
-          {/* Mobile hamburger */}
+        {/* Mobile top bar — hidden on lg+ */}
+        <header className="lg:hidden sticky top-0 z-20 flex items-center gap-3 px-4 h-14 bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 flex-shrink-0">
           <button
-            onClick={() => setMobileMenuOpen(true)}
-            className="md:hidden p-2 rounded-lg text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
-            aria-label="Open menu"
+            type="button"
+            onClick={() => setMobileOpen(true)}
+            className="p-1.5 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+            aria-label="Open navigation menu"
           >
-            <Menu size={20} />
+            <Menu size={22} />
           </button>
-
-          {/* Desktop spacer — plain div, no comment inside props */}
-          <div className="hidden md:block" />
-
+          <Link to="/dashboard" className="flex items-center gap-2 flex-1 min-w-0">
+            <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-brand-500 to-purple-600 flex items-center justify-center flex-shrink-0">
+              <Sparkles size={11} className="text-white" />
+            </div>
+            <span className="font-bold text-sm text-zinc-900 dark:text-zinc-50 truncate">
+              DevPortfolio AI
+            </span>
+          </Link>
           <ThemeToggle />
         </header>
 
-        {/* Page content */}
-        <main className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8">
-          <Outlet />
-        </main>
+        {/* Desktop theme toggle */}
+        <div className="hidden lg:block fixed top-4 right-4 z-10">
+          <ThemeToggle />
+        </div>
 
+        {/* Page content */}
+        <main className="flex-1 overflow-x-hidden" role="main">
+          <div className="p-4 sm:p-6 lg:p-8 max-w-[1200px] mx-auto">
+            <Outlet />
+          </div>
+        </main>
       </div>
     </div>
   )

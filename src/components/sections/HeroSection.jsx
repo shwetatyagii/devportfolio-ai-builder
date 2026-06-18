@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/ui'
 
-const PILLS = ['No credit card required', 'Free AI generation', '3 premium templates']
+const PILLS = ['No credit card required', 'Free AI generation', '5 premium templates']
 
 const container = { animate: { transition: { staggerChildren: 0.09 } } }
 const item = {
